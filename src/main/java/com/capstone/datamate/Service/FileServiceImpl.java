@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
-
+import org.springframework.util.StringUtils;
 import com.capstone.datamate.Entity.FileEntity;
 import com.capstone.datamate.Entity.UserEntity;
 import com.capstone.datamate.Repository.FileRepository;
@@ -38,12 +38,32 @@ public class FileServiceImpl implements FileService {
   }
 
   //save file in db
+//  public FileEntity store(MultipartFile file) throws IOException {
+//    String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+//    FileEntity File = new FileEntity(fileName, file.getSize(), file.getBytes());
+//
+//    return fileRepo.save(File);
+//  }
+  
+  //updated for duplicate files
   public FileEntity store(MultipartFile file) throws IOException {
-    String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-    FileEntity File = new FileEntity(fileName, file.getSize(), file.getBytes());
+	    String originalFileName = StringUtils.cleanPath(file.getOriginalFilename());
+	    String fileName = getUniqueFileName(originalFileName);
+	    FileEntity fileEntity = new FileEntity(fileName, file.getSize(), file.getBytes());
 
-    return fileRepo.save(File);
-  }
+	    return fileRepo.save(fileEntity);
+	}
+
+	private String getUniqueFileName(String originalFileName) {
+	    String fileName = originalFileName;
+	    int counter = 1;
+	    while (fileRepo.existsByFileName(fileName)) {
+	        fileName = originalFileName + "(" + counter + ")";
+	        counter++;
+	    }
+	    return fileName;
+	}
+
 
   //fetch files not deleted and is uploaded by the user
   public List<FileEntity> getFilesByUserId(int userId) {

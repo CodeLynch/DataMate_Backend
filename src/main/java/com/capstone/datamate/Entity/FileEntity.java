@@ -37,6 +37,9 @@ public class FileEntity {
     private boolean isdeleted;
     @Column
     private String thumbnailUrl;
+    
+    @Column
+    private Boolean isConvertedToDatabase;
 
     @Column(length=1000000)
     @Lob
@@ -50,18 +53,27 @@ public class FileEntity {
     public FileEntity(){}
     
     public FileEntity(int fileId, String fileName, float fileSize, LocalDateTime uploadDate,
-            LocalDateTime latestDateModified, boolean isdeleted, byte[] data , UserEntity user) {
+            LocalDateTime latestDateModified, boolean isdeleted, boolean isConvertedToDatabase, byte[] data , UserEntity user) {
         this.fileId = fileId;
         this.fileName = fileName;
         this.fileSize = fileSize;
         this.uploadDate = uploadDate;
         this.latestDateModified = latestDateModified;
         this.isdeleted = isdeleted;
+        this.isConvertedToDatabase = isConvertedToDatabase;
         this.data = data;
         this.user = user;
     }
 
-    public FileEntity(String fileName, float fileSize, byte[] data) {
+    public boolean isConvertedToDatabase() {
+		return isConvertedToDatabase;
+	}
+
+	public void setConvertedToDatabase(boolean isConvertedToDatabase) {
+		this.isConvertedToDatabase = isConvertedToDatabase;
+	}
+
+	public FileEntity(String fileName, float fileSize, byte[] data) {
         this.fileName = fileName;
         this.fileSize = fileSize;
         this.data = data;

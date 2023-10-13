@@ -17,10 +17,15 @@ public interface FileRepository extends JpaRepository<FileEntity,Integer>{
     // public List<FileEntity> findAllByDeletedAndCreatorUserid (boolean isdeleted, int userId);
     @Query("SELECT f FROM FileEntity f WHERE f.user.userId = :userId AND f.isdeleted = false")
     public List<FileEntity> findFilesByUserIdAndIsNotDeleted(@Param("userId") int userId);
-    
+    FileEntity findByFileName(String fileName);
     // get deleted files by user id
     @Query("SELECT f FROM FileEntity f WHERE f.user.id = :userId AND f.isdeleted = true")
     List<FileEntity> findDeletedFilesByUserId(int userId);
+    
+    
+    //for duplicate files
+    boolean existsByFileName(String fileName);
+    
 
 }
 
