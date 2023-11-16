@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-// import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,13 +20,12 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.capstone.datamate.Entity.FileEntity;
 import com.capstone.datamate.Message.ResponseFile;
-// import com.capstone.datamate.Message.ResponseMessage;
 import com.capstone.datamate.Service.FileService;
 
 import jakarta.persistence.EntityNotFoundException;
 
 
-@CrossOrigin("http://localhost:3000/")
+@CrossOrigin("https://data-mate-frontend.vercel.app/")
 @RestController
 public class FileController {
     @Autowired

@@ -25,7 +25,7 @@ import com.capstone.datamate.Entity.UserEntity;
 import com.capstone.datamate.Service.UserService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin("https://data-mate-frontend.vercel.app/")
 @RequestMapping("/user")
 public class UserController {
 	

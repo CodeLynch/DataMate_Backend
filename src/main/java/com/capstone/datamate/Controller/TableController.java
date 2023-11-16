@@ -1,6 +1,5 @@
 package com.capstone.datamate.Controller;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.capstone.datamate.Entity.TableEntity;
 import com.capstone.datamate.Service.TableService;
 
-@CrossOrigin("http://localhost:3000/")
+@CrossOrigin("https://data-mate-frontend.vercel.app/")
 @RestController
 public class TableController {
     

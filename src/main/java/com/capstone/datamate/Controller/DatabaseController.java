@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capstone.datamate.Entity.DatabaseEntity;
-import com.capstone.datamate.Entity.FileEntity;
 import com.capstone.datamate.Service.DatabaseService;
 
-@CrossOrigin("http://localhost:3000/")
+@CrossOrigin("https://data-mate-frontend.vercel.app/")
 @RestController
 public class DatabaseController {
     

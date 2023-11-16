@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,12 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.capstone.datamate.Entity.TemplateEntity;
 import com.capstone.datamate.Message.ResponseMessage;
 import com.capstone.datamate.Message.ResponseTemplate;
 import com.capstone.datamate.Service.TemplateService;
 
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("https://data-mate-frontend.vercel.app/")
 @RestController
 public class TemplateController {
   @Autowired

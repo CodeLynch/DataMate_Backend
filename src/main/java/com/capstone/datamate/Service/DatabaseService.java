@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capstone.datamate.Entity.DatabaseEntity;
-import com.capstone.datamate.Entity.FileEntity;
 import com.capstone.datamate.Repository.DatabaseRepository;
 
 @Service

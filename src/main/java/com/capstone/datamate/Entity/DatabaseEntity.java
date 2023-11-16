@@ -1,6 +1,5 @@
 package com.capstone.datamate.Entity;
 
-import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

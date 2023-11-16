@@ -1,25 +1,9 @@
 package com.capstone.datamate.Service;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
-import java.util.Random;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
-import com.capstone.datamate.Entity.UserEntity;
-import com.capstone.datamate.Repository.UserRepository;
-
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
-
-import org.springframework.transaction.annotation.Transactional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 
