@@ -34,7 +34,7 @@ public class UserEntity {
 	private String businessName;
 	private String businessType;
 	
-	@Column(columnDefinition = "LONGBLOB")
+	@Column(columnDefinition = "BYTEA")
 	private byte[] userImage;
 
 

@@ -15,10 +15,10 @@ public class AppConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/db_datamate");
-        dataSource.setUsername("root");
-        dataSource.setPassword("root");
+        dataSource.setDriverClassName("org.postgresql.Driver");
+        dataSource.setUrl("jdbc:postgresql://dpg-clacpn9m6hds73dhnba0-a.oregon-postgres.render.com/db_datamate");
+        dataSource.setUsername("db_datamate_user");
+        dataSource.setPassword("Oj9iHI28hYp5nEcmwwvouxw6bTaIdFZA");
 
         return dataSource;
     }
