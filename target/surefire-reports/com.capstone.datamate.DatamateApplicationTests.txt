@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.capstone.datamate.DatamateApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.081 s - in com.capstone.datamate.DatamateApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.769 s - in com.capstone.datamate.DatamateApplicationTests
