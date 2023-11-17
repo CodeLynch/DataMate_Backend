@@ -37,7 +37,7 @@ public class FileEntity {
     @Column
     private String thumbnailUrl;
 
-    @Column(length=1000000)
+    @Column(length=1000000, columnDefinition = "BYTEA")
     @Lob
     private byte[] data;
     
