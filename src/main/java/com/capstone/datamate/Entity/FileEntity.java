@@ -1,6 +1,10 @@
 package com.capstone.datamate.Entity;
 
+import java.sql.Types;
 import java.time.LocalDateTime;
+
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.annotations.Type;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,6 +42,7 @@ public class FileEntity {
     private String thumbnailUrl;
 
     @Column(length=1000000, columnDefinition = "BYTEA")
+    @JdbcTypeCode(Types.VARBINARY)
     @Lob
     private byte[] data;
     
