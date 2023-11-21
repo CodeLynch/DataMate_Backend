@@ -2,6 +2,9 @@ package com.capstone.datamate.Entity;
 
 import java.util.List;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,10 +28,12 @@ public class TableEntity {
     
     @ManyToOne(targetEntity = DatabaseEntity.class, cascade=CascadeType.MERGE)
     @JoinColumn(name = "databaseId")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private DatabaseEntity database;
     
     @ManyToOne(targetEntity = UserEntity.class, cascade=CascadeType.MERGE)
     @JoinColumn(name = "userId")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private UserEntity user;
 
     @Column

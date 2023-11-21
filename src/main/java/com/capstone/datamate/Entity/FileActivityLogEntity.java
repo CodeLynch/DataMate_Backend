@@ -2,6 +2,9 @@ package com.capstone.datamate.Entity;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,10 +24,12 @@ public class FileActivityLogEntity {
 
     @ManyToOne
     @JoinColumn(name = "fileId")
+	@OnDelete(action = OnDeleteAction.CASCADE)
     private FileEntity file;
 
     @ManyToOne
     @JoinColumn(name = "userId")
+	@OnDelete(action = OnDeleteAction.CASCADE)
     private UserEntity user;
 
     @Column
