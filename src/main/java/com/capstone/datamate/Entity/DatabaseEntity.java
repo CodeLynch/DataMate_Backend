@@ -25,7 +25,7 @@ public class DatabaseEntity {
     @Column
     private String databaseName;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "userId")
     @OnDelete(action = OnDeleteAction.CASCADE)
     UserEntity user;

@@ -26,12 +26,12 @@ public class TableEntity {
     @Column
     private String tableName;
     
-    @ManyToOne(targetEntity = DatabaseEntity.class, cascade=CascadeType.MERGE)
+    @ManyToOne(targetEntity = DatabaseEntity.class, cascade=CascadeType.ALL)
     @JoinColumn(name = "databaseId")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private DatabaseEntity database;
     
-    @ManyToOne(targetEntity = UserEntity.class, cascade=CascadeType.MERGE)
+    @ManyToOne(targetEntity = UserEntity.class, cascade=CascadeType.ALL)
     @JoinColumn(name = "userId")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private UserEntity user;
