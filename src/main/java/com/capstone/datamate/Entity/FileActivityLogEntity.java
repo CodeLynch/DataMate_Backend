@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,12 +23,12 @@ public class FileActivityLogEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int logId;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "fileId")
 	@OnDelete(action = OnDeleteAction.CASCADE)
     private FileEntity file;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "userId")
 	@OnDelete(action = OnDeleteAction.CASCADE)
     private UserEntity user;

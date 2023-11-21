@@ -4,6 +4,7 @@ package com.capstone.datamate.Entity;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class DatabaseEntity {
     @Column
     private String databaseName;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "user_id", referencedColumnName = "userId")
     @OnDelete(action = OnDeleteAction.CASCADE)
     UserEntity user;
