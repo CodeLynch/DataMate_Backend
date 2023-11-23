@@ -58,7 +58,7 @@ public class FileEntity {
 //    @JoinColumn(name = "user_id") 
 //    private UserEntity user;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private UserEntity user;

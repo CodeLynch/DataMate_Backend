@@ -23,12 +23,12 @@ public class FileActivityLogEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int logId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "fileId")
 	@OnDelete(action = OnDeleteAction.CASCADE)
     private FileEntity file;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "userId")
 	@OnDelete(action = OnDeleteAction.CASCADE)
     private UserEntity user;
