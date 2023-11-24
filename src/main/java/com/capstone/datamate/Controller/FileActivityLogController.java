@@ -44,7 +44,7 @@ public class FileActivityLogController {
 
 	    UserEntity user = userOptional.orElseThrow(() -> new EntityNotFoundException("User with id " + userId + " not found"));
 
-	    FileActivityLogEntity log = logService.logFileActivity(file, user, activity);
+	    FileActivityLogEntity log = logService.logFileActivity(file.getFileName(), user, activity);
 
 	    return log;
 	}

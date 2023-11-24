@@ -1,5 +1,7 @@
 package com.capstone.datamate.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,8 +38,18 @@ public class TableService {
 
     public List<Object[]> executeNativeQuery(String tableName) {
         String sql = "SELECT * FROM " + tableName;
-        return entityManager.createNativeQuery(sql).getResultList();
+        List<Object[]> objList = new ArrayList<Object[]>();
+        objList = castList(Object[].class, entityManager.createNativeQuery(sql).getResultList());
+        return objList;
     }
+    
+    
+    public static <T> List<T> castList(Class<? extends T> clazz, Collection<?> c) {
+    List<T> r = new ArrayList<T>(c.size());
+    for(Object o: c)
+      r.add(clazz.cast(o));
+    return r;
+}
 
 
 }

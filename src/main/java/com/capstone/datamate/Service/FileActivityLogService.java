@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.capstone.datamate.Entity.FileEntity;
 import com.capstone.datamate.Entity.UserEntity;
 import com.capstone.datamate.Entity.FileActivityLogEntity;
 import com.capstone.datamate.Repository.FileActivityLogRepository;
@@ -17,7 +16,7 @@ public class FileActivityLogService {
     FileActivityLogRepository logRepository;
 
     
-    public FileActivityLogEntity logFileActivity(FileEntity file, UserEntity user, String activity) {
+    public FileActivityLogEntity logFileActivity(String file, UserEntity user, String activity) {
         FileActivityLogEntity log = new FileActivityLogEntity(file, user, activity);
         return logRepository.save(log);
     }

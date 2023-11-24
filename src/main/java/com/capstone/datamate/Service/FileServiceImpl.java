@@ -67,7 +67,7 @@ public class FileServiceImpl implements FileService {
           FileEntity savedFile = fileRepo.save(fileEntity);
           
           String activity = fileEntity.getFileName() + " uploaded";
-          FileActivityLogEntity log = new FileActivityLogEntity(savedFile, user, activity);
+          FileActivityLogEntity log = new FileActivityLogEntity(savedFile.getFileName(), user, activity);
           logRepository.save(log);
           
           return savedFile;
@@ -141,7 +141,7 @@ public class FileServiceImpl implements FileService {
 	          UserEntity user = fileEntity.getUser();
 	
 	          String activity = fileEntity.getFileName() + " deleted";
-	          FileActivityLogEntity log = new FileActivityLogEntity(fileEntity, user, activity);
+	          FileActivityLogEntity log = new FileActivityLogEntity(fileEntity.getFileName() , user, activity);
 	          logRepository.save(log);
 	
 	          fileRepo.delete(fileEntity);
@@ -182,7 +182,7 @@ public class FileServiceImpl implements FileService {
 	           
 	           String activity = "Restored " + fileEntity.getFileName();
 	           
-	           FileActivityLogEntity log = new FileActivityLogEntity(fileEntity, user, activity);
+	           FileActivityLogEntity log = new FileActivityLogEntity(fileEntity.getFileName(), user, activity);
 	           logRepository.save(log);
 
 	           return fileRepo.save(fileEntity);
@@ -232,7 +232,7 @@ public class FileServiceImpl implements FileService {
 	           UserEntity user = fileEntity.getUser();
 	           	
 	           String activity = fileEntity.getFileName() + " was moved to bin";
-	           FileActivityLogEntity log = new FileActivityLogEntity(fileEntity, user, activity);
+	           FileActivityLogEntity log = new FileActivityLogEntity(fileEntity.getFileName(), user, activity);
 	           logRepository.save(log);
 
 	           fileRepo.save(fileEntity);

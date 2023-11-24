@@ -23,10 +23,7 @@ public class FileActivityLogEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int logId;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "fileId")
-	@OnDelete(action = OnDeleteAction.CASCADE)
-    private FileEntity file;
+    private String fileName;
 
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "userId")
@@ -43,8 +40,8 @@ public class FileActivityLogEntity {
     public FileActivityLogEntity() {
     }
 
-    public FileActivityLogEntity(FileEntity file, UserEntity user, String activity) {
-        this.file = file;
+    public FileActivityLogEntity(String fileName, UserEntity user, String activity) {
+        this.fileName = fileName;
         this.user = user;
         this.activity = activity;
         this.timestamp = LocalDateTime.now();
@@ -58,12 +55,12 @@ public class FileActivityLogEntity {
 		this.logId = logId;
 	}
 
-	public FileEntity getFile() {
-		return file;
+	public String getFileName() {
+		return fileName;
 	}
 
-	public void setFile(FileEntity file) {
-		this.file = file;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 	public UserEntity getUser() {
